@@ -125,7 +125,7 @@ El tamaño de la descarga de los ficheros es, aproximadamente, 280MB y, una vez 
 - 23\. *Out-of-core learning* [[notebook](notebooks-spanish/23-aprendizaje_out_of_core.ipynb)][[html](https://rawgit.com/pagutierrez/tutorial-sklearn/master/notebooks-spanish/23-aprendizaje_out_of_core.html)]
 
 # Referencias
-Este tutorial es una traducción del tutorial de Alex Gramfort y Andreas Mueller [[Github]](https://github.com/amueller/scipy-2017-sklearn)[Youtube1](https://www.youtube.com/watch?v=2kT6QOVSgSg)[Youtube2](https://www.youtube.com/watch?v=WLYzSas511I)
+Este tutorial es una traducción del tutorial de Alex Gramfort y Andreas Mueller [[Github]](https://github.com/amueller/scipy-2017-sklearn)[[Youtube1]](https://www.youtube.com/watch?v=2kT6QOVSgSg)[[Youtube2]](https://www.youtube.com/watch?v=WLYzSas511I)
 
 Se recomiendan los siguientes tutoriales adicionales para aprender más sobre el manejo de la librería:
 - *An introduction to machine learning with scikit-learn*. Documentación oficial de `scikit-learn`. [http://scikit-learn.org/stable/tutorial/basic/tutorial.html](http://scikit-learn.org/stable/tutorial/basic/tutorial.html).
