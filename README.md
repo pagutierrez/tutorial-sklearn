@@ -105,14 +105,14 @@ Temas
 =======
 
 
-- 01. Introducción a aprendizaje automático en Python [[notebook](notebooks-spanish/01-introduccion_aprendizaje_automatico.ipynb)][[html](notebooks-spanish/01-introduccion_aprendizaje_automatico.html)]
-- 02. Herramientas científicas en Python [[notebook](notebooks-spanish/)][[html](notebooks-spanish/)]
-- 03. Representación y visualización de datos [[notebook](notebooks-spanish/)][[html](notebooks-spanish/)]
-- 04. Aprendizaje supervisado: entrenamiento y test [[notebook](notebooks-spanish/)][[html](notebooks-spanish/)]
-- 05. Aprendizaje supervisado: clasificación [[notebook](notebooks-spanish/)][[html](notebooks-spanish/)]
-- 06. Aprendizaje supervisado: regresión [[notebook](notebooks-spanish/)][[html](notebooks-spanish/)]
-- 07. Aprendizaje no supervisado: transformación [[notebook](notebooks-spanish/)][[html](notebooks-spanish/)]
-- 08. Aprendizaje no supervisado: agrupamiento [[notebook](notebooks-spanish/)][[html](notebooks-spanish/)]
+- 01\. Introducción a aprendizaje automático en Python [[notebook](notebooks-spanish/01-introduccion_aprendizaje_automatico.ipynb)][[html](notebooks-spanish/01-introduccion_aprendizaje_automatico.html)]
+- 02\. Herramientas científicas en Python [[notebook](notebooks-spanish/)][[html](notebooks-spanish/)]
+- 03\. Representación y visualización de datos [[notebook](notebooks-spanish/)][[html](notebooks-spanish/)]
+- 04\. Aprendizaje supervisado: entrenamiento y test [[notebook](notebooks-spanish/)][[html](notebooks-spanish/)]
+- 05\. Aprendizaje supervisado: clasificación [[notebook](notebooks-spanish/)][[html](notebooks-spanish/)]
+- 06\. Aprendizaje supervisado: regresión [[notebook](notebooks-spanish/)][[html](notebooks-spanish/)]
+- 07\. Aprendizaje no supervisado: transformación [[notebook](notebooks-spanish/)][[html](notebooks-spanish/)]
+- 08\. Aprendizaje no supervisado: agrupamiento [[notebook](notebooks-spanish/)][[html](notebooks-spanish/)]
 - 09. Un resumen de la interfaz Estimator de scikit-learn [[notebook](notebooks-spanish/)][[html](notebooks-spanish/)]
 - 10. Caso de estudio - Supervivencia en el Titanic [[notebook](notebooks-spanish/)][[html](notebooks-spanish/)]
 - 11. Extracción de características de un texto mediante Bag-of-Words (bolsas de palabras) [[notebook](notebooks-spanish/)][[html](notebooks-spanish/)]
