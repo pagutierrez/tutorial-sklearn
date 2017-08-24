@@ -67,9 +67,20 @@ Una vez dentro del libro, ejecuta la única celda de código pulsando sobre el b
 ![](images/check_env-1.png)
 
 Si tu entorno satisface todos los requisitos para el tutorial, el código ejecutado debería mostrar una salida como la siguiente:
+```bash
+Using python in /home/pagutierrez/anaconda3
+3.6.1 |Anaconda 4.4.0 (64-bit)| (default, May 11 2017, 13:09:58) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]
 
-![](images/check_env-2.png)
-
+[ OK ] numpy version 1.12.1
+[ OK ] scipy version 0.19.0
+[ OK ] matplotlib version 2.0.2
+[ OK ] IPython version 5.3.0
+[ OK ] sklearn version 0.18.1
+[ OK ] pandas version 0.20.1
+[ OK ] PIL version 1.1.7
+[ OK ] ipywidgets version 6.0.0
+```
 Aunque no sea un requisito, te recomendamos actualizar los paquetes Python a su ultima versión, para así asegurar la mejor compatibilidad con el material didáctico. Puedes actualizar los paquetes con los comandos:
 ```bash
 pip install [package-name] --upgrade
