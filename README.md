@@ -64,8 +64,10 @@ jupyter notebook check_env.ipynb
 ```
 Una vez dentro del libro, ejecuta la única celda de código pulsando sobre el botón "Run Cells", tal y como muestra esta figura:
 ![](images/check_env-1.png)
+
 Si tu entorno satisface todos los requisitos para el tutorial, el código ejecutado debería mostrar una salida como la siguiente:
 ![](images/check_env-2.png)
+
 Aunque no sea un requisito, te recomendamos actualizar los paquetes Python a su ultima versión, para así asegurar la mejor compatibilidad con el material didáctico. Puedes actualizar los paquetes con los comandos:
 ```bash
 pip install [package-name] --upgrade
