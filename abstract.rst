@@ -1,4 +1,4 @@
-Machine Learning with scikit-learn
+Aprendizaje automático con scikit-learn
 
 Tutorial Topic
 --------------

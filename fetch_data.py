@@ -34,7 +34,7 @@ def get_datasets_folder():
 
 
 def check_imdb(datasets_folder):
-    print("\nChecking availability of the IMDb dataset")
+    print("\nComprobando la disponibilidad del dataset IMDb")
     archive_path = os.path.join(datasets_folder, IMDB_ARCHIVE_NAME)
     imdb_path = os.path.join(datasets_folder, 'IMDb')
 
@@ -43,20 +43,20 @@ def check_imdb(datasets_folder):
 
     if not os.path.exists(imdb_path):
         if not os.path.exists(archive_path):
-            print("Downloading dataset from %s (84.1MB)" % IMDB_URL)
+            print("Descargando el dataset de %s (84.1MB)" % IMDB_URL)
             opener = urlopen(IMDB_URL)
             open(archive_path, 'wb').write(opener.read())
         else:
-            print("Found archive: " + archive_path)
+            print("Archivo encontrado: " + archive_path)
 
-        print("Extracting %s to %s" % (archive_path, imdb_path))
+        print("Extrayendo %s a %s" % (archive_path, imdb_path))
 
         tar = tarfile.open(archive_path, "r:gz")
         tar.extractall(path=imdb_path)
         tar.close()
         os.remove(archive_path)
 
-    print("Checking that the IMDb train & test directories exist...")
+    print("Comprobando que los directorios train y test del dataset IMDb existen...")
     assert os.path.exists(train_path)
     assert os.path.exists(test_path)
     print("=> Success!")
@@ -66,8 +66,8 @@ if __name__ == "__main__":
     datasets_folder = get_datasets_folder()
     check_imdb(datasets_folder)
 
-    #print("\nLoading Labeled Faces Data (~200MB)")
-    #from sklearn.datasets import fetch_lfw_people
-    #fetch_lfw_people(min_faces_per_person=70, resize=0.4,
-    #                 data_home=datasets_folder)
-    #print("=> Success!")
+    print("\n Cargando Labeled Faces Data (~200MB)")
+    from sklearn.datasets import fetch_lfw_people
+    fetch_lfw_people(min_faces_per_person=70, resize=0.4,
+                     data_home=datasets_folder)
+    print("=> Conseguido!")
