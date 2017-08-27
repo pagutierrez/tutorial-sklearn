@@ -1,7 +1,7 @@
 # Tutorial sobre scikit-learn
 
 
-Este repositorio contiene una serie de material sobre un breve tutorial sobre ``scikit-learn`` en Python. Está basado en el tutorial de ``scikit-learn`` realizado en la conferencia Scipy2017 (ver referencias, [[Github]](https://github.com/amueller/scipy-2017-sklearn)).
+Este repositorio contiene una serie de material sobre un breve tutorial sobre ``scikit-learn`` en Python. Está basado en el tutorial de ``scikit-learn`` realizado en la conferencia Scipy2017 (ver referencias).
 
 
 ## Conseguir el material para el tutorial
