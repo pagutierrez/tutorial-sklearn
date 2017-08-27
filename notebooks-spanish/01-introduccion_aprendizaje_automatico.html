@@ -11828,7 +11828,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Los datos suelen presentarse al algoritmo como un array de dos dimensiones (o matriz) con números. Cada punto (también conocido como <em>ejemplo</em> o <em>instancia de entrenamiento</em>) sobre el cual queremos aprender o tomar una decisión se representa mediante una lista de números, también llamada vectora de características, y contiene las características que representan las propiedades de ese punto.</p>
+<p>Los datos suelen presentarse al algoritmo como un array de dos dimensiones (o matriz) con números. Cada punto (también conocido como <em>ejemplo</em> o <em>instancia de entrenamiento</em>) sobre el cual queremos aprender o tomar una decisión se representa mediante una lista de números, también llamado vector de características, y contiene las características que representan las propiedades de ese punto.</p>
 <p>Más tarde, trabajaremos en conjunto de datos (<em>dataset</em>) muy popular, llamado <em>Iris</em>. Iris, un dataset clásico de prueba en aprendizaje automático, contiene las medidas de 150 flores de tipo iris con 3 especies distintas: <code>Iris-Setosa</code>, <code>Iris-Versicolor</code> e <code>Iris-Virginica</code>.</p>
 <p>Iris Setosa
 <img src="figures/iris_setosa.jpg" width="50%"></p>
@@ -11867,15 +11867,15 @@ $$</p>
 <h3 id="Aprendizaje-supervisado:-regresi&#243;n-y-clasificaci&#243;n">Aprendizaje supervisado: regresi&#243;n y clasificaci&#243;n<a class="anchor-link" href="#Aprendizaje-supervisado:-regresi&#243;n-y-clasificaci&#243;n">&#182;</a></h3><p>En <strong>aprendizaje supervisado</strong>, tenemos un dataset que contiene tanto características de entrada como una salida deseada, como en el ejemplo de clasificación de <em>spam</em>. La tarea a realizar es construir un modelo que sea capaz de predecir la salida deseada de un nuevo objeto dadas las características de entrada.</p>
 <p>Algunos ejemplos más complejos son:</p>
 <ul>
-<li>Data una imagen RBG de un telescopio, determinar si el objeto es una estrella, un cuásar o una galaxia.</li>
+<li>Dada una imagen RBG de un telescopio, determinar si el objeto es una estrella, un cuásar o una galaxia.</li>
 <li>Dada la fotografía de una persona, identificar a la persona en la foto.</li>
-<li>Dada una lista de películas que una persona ha visto y la puntuación que le he dado, recomendar una lista de películas que le podría gustar.</li>
+<li>Dada una lista de películas que una persona ha visto y la puntuación que le he dado, recomendar una lista de películas que le podrían gustar.</li>
 <li>Dada la edad de una persona, su educación y su posición, deducir su salario.</li>
 </ul>
 <p>Lo que tienen en común todas estas tareas es que tenemos una o más cantidades no determinadas sobre un objeto que deben ser predichas usando otras cantidades.</p>
 <p>El aprendizaje supervisado se divide a su vez en dos categorías, <strong>clasificación</strong> y <strong>regresión</strong>:</p>
 <ul>
-<li><strong>En clasificación, la etiqueta es discreta</strong>, por ejemplo <code>Spam</code> y <code>No Spam</code>. En otras palabras, se proporciona una distinción clara entre las categorías. Es más, es importante indicar que estas categorías son nominales y no ordinales. Las variables nominales y ordinales son ambas subcategorías de las variables categóricas. Las variables ordinales tienen asociado un orden, por ejemplo, las tallas de las camisetas "XL &gt; L &gt; M &gt; S". Por el contrario, las variables nominales no implican un orden, por ejemplo, no podemos asumir (en general) "orange &gt; blue &gt; green".</li>
+<li><strong>En clasificación, la etiqueta es discreta</strong>, por ejemplo <code>Spam</code> y <code>No Spam</code>. En otras palabras, se proporciona una distinción clara entre las categorías. Es más, es importante indicar que estas categorías son nominales y no ordinales. Las variables nominales y ordinales son ambas subcategorías de las variables categóricas. Las variables ordinales tienen asociado un orden, por ejemplo, las tallas de las camisetas "XL &gt; L &gt; M &gt; S". Por el contrario, las variables nominales no implican un orden, por ejemplo, no podemos asumir (en general) "naranja &gt; azul &gt; verde".</li>
 </ul>
 <ul>
 <li><strong>En regresión, la etiqueta es continua</strong>, es decir una salida real. Por ejemplo, en astronomía, la tarea de determinar si un objeto es una estrella, una galaxia o un cuásar es un problema de clasificación: la etiqueta viene de tres categorías distintas. Por otro lado, podríamos querer estimar la edad de un objeto basándonos en su imagen: esto sería regresión, porque la etiqueta (edad) es una cantidad continua. </li>
