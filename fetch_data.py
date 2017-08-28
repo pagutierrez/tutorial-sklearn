@@ -1,5 +1,4 @@
-
-rt os
+import os
 import zipfile
 
 try:
