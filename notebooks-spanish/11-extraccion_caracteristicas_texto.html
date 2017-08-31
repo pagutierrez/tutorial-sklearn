@@ -11802,8 +11802,8 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>En muchas tareas, como en la detección de <em>spam</em>, tus datos de entrada son cadenas de texto. El texto libre con longitud variable está muy lejos de lo que necesitamos para hacer aprendizaje automático con scikit-learn (representaciones numéricas de tamaño fijo).
-Sin embargo, hay una forma fácil y efectiva de transformar datos textuales en una representación numérico, utilizando lo que se conoce como <em>bag-of-words</em>, que proporciona una estructura de datos que es compatible con los algoritmos de aprendizaje automático de scikit-learn.</p>
+<p>En muchas tareas, como en la detección de <em>spam</em>, los datos de entrada son cadenas de texto. El texto libre con longitud variable está muy lejos de lo que necesitamos para hacer aprendizaje automático en scikit-learn (representaciones numéricas de tamaño fijo).
+Sin embargo, hay una forma fácil y efectiva de transformar datos textuales en una representación numérica, utilizando lo que se conoce como <em>bag-of-words</em>, que proporciona una estructura de datos que es compatible con los algoritmos de aprendizaje automático de scikit-learn.</p>
 
 </div>
 </div>
@@ -11823,10 +11823,10 @@ Sin embargo, hay una forma fácil y efectiva de transformar datos textuales en u
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Vamos a asumir que cada texto del dataset es una cadena, que puedes ser una frase, un correo, un libro o un artículo completo de noticias. Para representar el patrón, primero partimos la cadena en un conjunto de tokens, que se corresponden con palabras (normalizadas de alguna forma). Un modo simple de hacer esto es partir la frase según los espacios en blanco y luego pasar a minúsculas todas las palabras.</p>
+<p>Vamos a asumir que cada texto del dataset es una cadena, que puede ser una frase, un correo, un libro o un artículo completo de noticias. Para representar el patrón, primero partimos la cadena en un conjunto de tokens, que se corresponden con palabras (normalizadas de alguna forma). Un modo simple de hacer esto es partir la frase según los espacios en blanco y luego pasar a minúsculas todas las palabras.</p>
 <p>Después hacemos un vocabulario a partir de todos los tokens (palabras en minúsculas) que encontramos en el dataset completo. Esto suele resultar en un vocabulario muy largo. Ahora tendríamos que ver si las palabras del vocabulario aparecen o no en nuestro patrón. Representamos cada patrón (cadena) con un vector, donde cada entrada nos informa acerca de cuántas veces aparece una palabra del vocabulario en el patrón (en su versión más simple un valor binario, 1 si aparece al menos una vez, 0 sino).</p>
 <p>Ya que cada ejemplo va a tener solo unas cuantas palabras y el vocabulario suele ser muy largo, la mayoría de entradas son ceros, lo que lleva a una representación de alta dimensionalidad pero dispersa.</p>
-<p>Este métodos se llama bolsa de palabras porque el orden de las palabras se pierde completamente (solo sabemos qué aparecen).</p>
+<p>Este método se llama bolsa de palabras porque el orden de las palabras se pierde completamente (solo sabemos qué aparecen).</p>
 
 </div>
 </div>
@@ -12108,7 +12108,8 @@ Sin embargo, hay una forma fácil y efectiva de transformar datos textuales en u
 <div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">vectorizer</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">X_bag_of_words</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Volver al texto original (perdemos el orden y la capitalización)</span>
+<span class="n">vectorizer</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">X_bag_of_words</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12143,7 +12144,7 @@ Sin embargo, hay una forma fácil y efectiva de transformar datos textuales en u
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Codificaci&#243;n-tf-idf">Codificaci&#243;n tf-idf<a class="anchor-link" href="#Codificaci&#243;n-tf-idf">&#182;</a></h1><p>Una transformación bastante útil que a menudo es aplicada a la codificación <em>bag-of-words</em> es el escalado <em>term-frequency inverse-document-frequency</em> (<a href="https://es.wikipedia.org/wiki/Tf-idf">tf-idf</a>), frecuencia de término -- frecuencia inversa de documento (o sea, la frecuencia de ocurrencia del término en la colección de documentos). Es una transformación no lineal del conteo de palabras. Consiste en una medida numérica que expresa cuán relevante es una palabra para un documento en una colección. Esta medida se utiliza a menudo como un factor de ponderación en la recuperación de información y la minería de texto. El valor tf-idf aumenta proporcionalmente al número de veces que una palabra aparece en el documento, pero es compensada por la frecuencia de la palabra en la colección de documentos, lo que permite manejar el hecho de que algunas palabras son generalmente más comunes que otras.</p>
+<h1 id="Codificaci&#243;n-tf-idf">Codificaci&#243;n tf-idf<a class="anchor-link" href="#Codificaci&#243;n-tf-idf">&#182;</a></h1><p>Una transformación bastante útil que a menudo es aplicada a la codificación <em>bag-of-words</em> es el escalado <em>term-frequency inverse-document-frequency</em> (<a href="https://es.wikipedia.org/wiki/Tf-idf">tf-idf</a>), frecuencia de término -- frecuencia inversa de documento (tener en cuenta la frecuencia de ocurrencia del término en la colección de documentos). Es una transformación no lineal del conteo de palabras. Consiste en una medida numérica que expresa cuán relevante es una palabra para un documento en una colección. Esta medida se utiliza a menudo como un factor de ponderación en recuperación de información y en minería de textos. El valor tf-idf aumenta proporcionalmente al número de veces que una palabra aparece en el documento, pero es compensado por la frecuencia de la palabra en la colección global de documentos, lo que permite manejar el hecho de que algunas palabras son generalmente más comunes que otras.</p>
 <p>La codificación tf-idf rescala las palabras que son comunes para que tengan menos peso:</p>
 
 </div>
@@ -12227,7 +12228,7 @@ Sin embargo, hay una forma fácil y efectiva de transformar datos textuales en u
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Los tf-idfs son una forma de representar documentos como vectores de características. Se pueden entender como una modificación de la frecuencia de aparición de términos (<code>tf</code>): <code>tf</code> nos da una idea acerca de cuántas veces aparece el término en el documento (o patrón). La idea del tf-idf es bajar el peso de los términos proporcionalmente al número de documentos en que aparecen. Así, si un término aparece en muchos documentos en principio puede ser poco importante o al menos no aportar mucha información para las tareas de procesamiento de lenguaje natural (por ejemplo, la palabra <code>que</code> es muy común y no nos permite hacer una discriminación útil). Este <a href="http://nbviewer.jupyter.org/github/rasbt/pattern_classification/blob/master/machine_learning/scikit-learn/tfidf_scikit-learn.ipynb">libro externo de IPython</a> puedes proporcionarte mucha más información sobre las ecuaciones y el cálculo de la representación tf-idf.</p>
+<p>Los tf-idfs son una forma de representar documentos como vectores de características. Se pueden entender como una modificación de la frecuencia de aparición de términos (<code>tf</code>): <code>tf</code> nos da una idea acerca de cuántas veces aparece el término en el documento (o patrón). La idea del tf-idf es bajar el peso de los términos proporcionalmente al número de documentos en que aparecen. Así, si un término aparece en muchos documentos en principio puede ser poco importante o al menos no aportar mucha información para las tareas de procesamiento de lenguaje natural (por ejemplo, la palabra <code>que</code> es muy común y no nos permite hacer una discriminación útil). Este <a href="http://nbviewer.jupyter.org/github/rasbt/pattern_classification/blob/master/machine_learning/scikit-learn/tfidf_scikit-learn.ipynb">libro externo de IPython</a> proporciona mucha más información sobre las ecuaciones y el cálculo de la representación tf-idf.</p>
 
 </div>
 </div>
@@ -12238,15 +12239,15 @@ Sin embargo, hay una forma fácil y efectiva de transformar datos textuales en u
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Bigramas-y-n-gramas">Bigramas y n-gramas<a class="anchor-link" href="#Bigramas-y-n-gramas">&#182;</a></h1><p>En el ejemplo de la figura que había al principio de este libro, hemos usado la división en tokens basada en 1-gramas (unigramas): cada token representa un único elemento con respecto al criterio de división.</p>
-<p>Puede ser que no siempre sea una buena idea descartar completamente el orden de las palabras, ya que las frases compuestas suelen tener significados específicos y algunos modificadores (como <code>no</code>) pueden invertir el significado de una palabra.</p>
-<p>Una forma simple de incluir este orden son los n-gramas, que no miran un único toke, sino todos los pares de tokens vecinos. Por ejemplo, si usamos división en tokens basada en 2-gramas (bigramas), agruparíamos juntas las palabras con un solape de una palabra. Con 3-gramas (trigramas), trabajaríamos con un solape de dos palabras...</p>
+<p>Puede ser que no siempre sea una buena idea descartar completamente el orden de las palabras, ya que las frases compuestas suelen tener significados específicos y algunos modificadores (como la palabra <code>no</code>) pueden invertir el significado de una palabra.</p>
+<p>Una forma simple de incluir este orden son los n-gramas, que no miran un único token, sino todos los pares de tokens vecinos. Por ejemplo, si usamos división en tokens basada en 2-gramas (bigramas), agruparíamos juntas las palabras con un solape de una palabra. Con 3-gramas (trigramas), trabajaríamos con un solape de dos palabras...</p>
 <ul>
 <li>Texto original: "Así es como consigues hormigas"</li>
 <li>1-gramas: "así", "es", "como", "consigues", "hormigas"</li>
 <li>2-gramas: "así es", "es como", "como consigues", "consigues hormigas"</li>
 <li>3-gramas: "así es como", "es como consigues", "como consigues hormigas"</li>
 </ul>
-<p>El valor de $n$ para los n-gramas que resultará en el rendimiento óptimo para nuestro modelo predictivo depende enteramente del algoritmo de aprendizaje, del dataset y de la tarea. O, en otras palabras, tenemos que considerar la $n$ como un parámetros de ajuste y, en algunos libros posteriores, veremos como tratar estos parámetros.</p>
+<p>El valor de $n$ para los n-gramas que resultará en el rendimiento óptimo para nuestro modelo predictivo depende enteramente del algoritmo de aprendizaje, del dataset y de la tarea. O, en otras palabras, tenemos que considerar $n$ como un parámetro de ajuste (en cuadernos posteriores veremos como tratar estos parámetros de ajuste).</p>
 <p>Ahora vamos a crear un modelo basado en <em>bag-of-words</em> de bigramas usando la clase de scikit-learn <code>CountVectorizer</code>:</p>
 
 </div>
@@ -12464,29 +12465,10 @@ Sin embargo, hay una forma fácil y efectiva de transformar datos textuales en u
 <div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">gram_vectorizer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">transformada</span> <span class="o">=</span> <span class="n">gram_vectorizer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[19]:</div>
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>array([[1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 1],
-       [0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1]])</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 

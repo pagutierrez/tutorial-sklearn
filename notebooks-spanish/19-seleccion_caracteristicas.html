@@ -11793,8 +11793,8 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Selecci&#243;n-autom&#225;tica-de-caracter&#237;sticas">Selecci&#243;n autom&#225;tica de caracter&#237;sticas<a class="anchor-link" href="#Selecci&#243;n-autom&#225;tica-de-caracter&#237;sticas">&#182;</a></h2><p>A menudo recogemos una gran cantidad de características que pensamos que pueden estar relacionadas con una tarea predictiva, pero no sabemos cuáles realmente son útiles. Para mejorar la interpretabilidad de los modelos y, a veces, la capacidad de generalización, podemos aplicar métodos automáticos de selección de características que nos seleccionen un subconjunto de las características originales. Hay mucho tipos distintos de algoritmos de selección de características, que iremos explicando en orden incremental de complejidad.</p>
-<p>Para un modelo supervisado, la mejor estrategia de selección de características sería probar todos los subconjuntos de características, evaluando la capacidad de generalización en cada subconjunto. Sin embargo, el número de subconjuntos es exponencial con respecto al número de características, por lo que una búsqueda exhaustiva no es posible. Las estrategia que se describen en este libro de notas son aproximaciones a esta búsqueda exhaustiva.</p>
+<h2 id="Selecci&#243;n-autom&#225;tica-de-caracter&#237;sticas">Selecci&#243;n autom&#225;tica de caracter&#237;sticas<a class="anchor-link" href="#Selecci&#243;n-autom&#225;tica-de-caracter&#237;sticas">&#182;</a></h2><p>A menudo recogemos una gran cantidad de características que pensamos que pueden estar relacionadas con una tarea predictiva, pero no sabemos cuáles son realmente útiles. Para mejorar la interpretabilidad de los modelos y, a veces, la capacidad de generalización, podemos aplicar métodos automáticos de selección de características que nos seleccionen un subconjunto de las características originales. Hay muchos tipos de algoritmos de selección de características, que iremos explicando en orden incremental de complejidad.</p>
+<p>Para un modelo supervisado, la mejor estrategia de selección de características sería probar todos los subconjuntos de características, evaluando la capacidad de generalización en cada subconjunto. Sin embargo, el número de subconjuntos es exponencial con respecto al número de características, por lo que una búsqueda exhaustiva no es posible. Las estrategias que se describen en este libro de notas son aproximaciones a esta búsqueda exhaustiva.</p>
 <h3 id="Estad&#237;sticos-univariantes">Estad&#237;sticos univariantes<a class="anchor-link" href="#Estad&#237;sticos-univariantes">&#182;</a></h3><p>El método más simple para seleccionar características es utilizar estadísticos univariantes, es decir, examinar cada característica individualmente y ejecutar un test estadístico para comprobar si esa característica esta relacionada con la variable objetivo.</p>
 <p>Vamos a crear un dataset sintético que contenga las características originales del dataset breast cancer, más 50 características totalmente aleatorias.</p>
 
@@ -11882,7 +11882,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>También podemos usar el estadístico para ver como de relevante es cada característica. Como breast cancer es un tarea de clasificación, vamos a usar f_classif, que es el test F para clasificación. A continuación, representamos los p-values asociados a cada una de las 80 características (las 30 originales más las 50 de ruido). Los p-values más bajos indican que las características son informativas:</p>
+<p>Podemos usar el estadístico para ver como de relevante es cada característica. Como breast cancer es un tarea de clasificación, vamos a usar f_classif, que es el test F para clasificación. A continuación, representamos los p-values asociados a cada una de las 80 características (las 30 originales más las 50 de ruido). Los p-values más bajos indican que las características son informativas:</p>
 
 </div>
 </div>
@@ -11936,7 +11936,7 @@ div#notebook {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&lt;matplotlib.lines.Line2D at 0x7fe39880a748&gt;]</pre>
+<pre>[&lt;matplotlib.lines.Line2D at 0x7f8d46c5f898&gt;]</pre>
 </div>
 
 </div>
@@ -12117,7 +12117,7 @@ oeTrhtCxAa8EppK4jgAfTO4P/po1xXkNZydUQ79mvwY8nHwdnf8/HzquhviuACaT93QfcGlEsV0M
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.image.AxesImage at 0x7fe3986d4978&gt;</pre>
+<pre>&lt;matplotlib.image.AxesImage at 0x7f8d46b27780&gt;</pre>
 </div>
 
 </div>
@@ -12185,7 +12185,7 @@ hUaFUBzqAAAAAElFTkSuQmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Casi todas las 30 características originales se mantiene. También podemos analizar la utilidad de la selección de características entrenando un modelo a partir de los datos. Es importante que la selección de características siempre se entrene (método <code>fit</code>) sobre el conjunto de entrenamiento (nunca sobre el de test):</p>
+<p>Casi todas las 30 características originales se mantienen. También podemos analizar la utilidad de la selección de características entrenando un modelo a partir de los datos. Es importante que la selección de características siempre se entrene (método <code>fit</code>) sobre el conjunto de entrenamiento (nunca sobre el de test):</p>
 
 </div>
 </div>
@@ -12202,9 +12202,9 @@ hUaFUBzqAAAAAElFTkSuQmCC
 
 <span class="n">lr</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
 <span class="n">lr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rendimiento con todas las características: </span><span class="si">%f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">lr</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rendimiento en test con todas las características: </span><span class="si">%f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">lr</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
 <span class="n">lr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_selected</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rendimiento solo con las características seleccionadas: </span><span class="si">%f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">lr</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test_selected</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rendimiento en test solo con las características seleccionadas: </span><span class="si">%f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">lr</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test_selected</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -12219,8 +12219,8 @@ hUaFUBzqAAAAAElFTkSuQmCC
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Rendimiento con todas las características: 0.929825
-Rendimiento solo con las características seleccionadas: 0.940351
+<pre>Rendimiento en test con todas las características: 0.929825
+Rendimiento en test solo con las características seleccionadas: 0.940351
 </pre>
 </div>
 </div>
@@ -12234,7 +12234,7 @@ Rendimiento solo con las características seleccionadas: 0.940351
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Selecci&#243;n-de-caracter&#237;sticas-basada-en-un-modelo">Selecci&#243;n de caracter&#237;sticas basada en un modelo<a class="anchor-link" href="#Selecci&#243;n-de-caracter&#237;sticas-basada-en-un-modelo">&#182;</a></h3><p>Un método más sofisticado es utilizar un modelo de aprendizaje automático y seleccionar las características en función de lo importantes que son para ese modelo. Esto requiere que el modelo proporcione algún mecanismo para ordenar las características en función de su importancia. Esto se puede hacer para todos los modelos basados en árboles (que implementan el método <code>get_feature_importances</code>) y todos los modelos lineales, para que los podemos usar los coeficientes asociados a cada característica.</p>
+<h3 id="Selecci&#243;n-de-caracter&#237;sticas-basada-en-un-modelo">Selecci&#243;n de caracter&#237;sticas basada en un modelo<a class="anchor-link" href="#Selecci&#243;n-de-caracter&#237;sticas-basada-en-un-modelo">&#182;</a></h3><p>Un método más sofisticado es utilizar un modelo de aprendizaje automático y seleccionar las características en función de lo importantes que son para ese modelo. Esto requiere que el modelo proporcione algún mecanismo para ordenar las características en función de su importancia. Esto se puede hacer para todos los modelos basados en árboles (que implementan el método <code>get_feature_importances</code>) y todos los modelos lineales, para los que podemos usar los coeficientes asociados a cada característica.</p>
 <p>Cualquiera de estos modelos puede convertirse en un transformador que aplica selección de características mediante el uso de la clase envoltorio <code>SelectFromModel</code>:</p>
 
 </div>
@@ -12311,7 +12311,7 @@ Rendimiento solo con las características seleccionadas: 0.940351
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.image.AxesImage at 0x7fe395a85630&gt;</pre>
+<pre>&lt;matplotlib.image.AxesImage at 0x7f8d4413c470&gt;</pre>
 </div>
 
 </div>
@@ -12454,7 +12454,7 @@ pEGzcJUkSZIkDZqFqyRJkiRp0CxcJUmSJEmD9l+4YGpGvh1UeAAAAABJRU5ErkJggg==
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.image.AxesImage at 0x7fe39599e860&gt;</pre>
+<pre>&lt;matplotlib.image.AxesImage at 0x7f8d440557b8&gt;</pre>
 </div>
 
 </div>
@@ -12591,7 +12591,7 @@ adAsXCVJkiRJg2bhKkmSJEkaNAtXSZIkSdKg/Rd9UGFGljf4fAAAAABJRU5ErkJggg==
     <b>EJERCICIO</b>:
      <ul>
       <li>
-      Crea el dataset XOR tal y como se indica en la celda siguiente:
+      Crea el dataset XOR tal y como se indica en la celda siguiente.
       </li>
       <li>
       Añade características aleatorias al mismo y compara como la selección univariante actúa frente a la selección basada en modelos (bosques aleatorios), cuando el objetivo es conseguir recuperar las características originales.
@@ -12631,7 +12631,7 @@ adAsXCVJkiRJg2bhKkmSJEkaNAtXSZIkSdKg/Rd9UGFGljf4fAAAAABJRU5ErkJggg==
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.collections.PathCollection at 0x7fe39593aef0&gt;</pre>
+<pre>&lt;matplotlib.collections.PathCollection at 0x7f8d3f97ef28&gt;</pre>
 </div>
 
 </div>

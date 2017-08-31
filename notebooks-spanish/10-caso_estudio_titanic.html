@@ -11778,7 +11778,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Caso-de-estudio----Supervivencia-en-el-Titanic">Caso de estudio -- Supervivencia en el Titanic<a class="anchor-link" href="#Caso-de-estudio----Supervivencia-en-el-Titanic">&#182;</a></h1>
+<h1 id="Caso-de-estudio---Supervivencia-en-el-Titanic">Caso de estudio - Supervivencia en el Titanic<a class="anchor-link" href="#Caso-de-estudio---Supervivencia-en-el-Titanic">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -11796,10 +11796,10 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Aquí vamos a hablar de una parte muy importante del aprendizaje automático: la extracción de característica cuantitativas a partir de los datos. Con este fin:</p>
+<p>Ahora trataremos parte muy importante del aprendizaje automático: la extracción de características cuantitativas a partir de los datos. Con este fin:</p>
 <ul>
-<li>Aprenderás como las características pueden extraerse a partir de datos del mundo real.</li>
-<li>Verás como extraer características numéricas a partir de datos textuales.
+<li>Aprenderemos como las características pueden extraerse a partir de datos del mundo real.</li>
+<li>Veremos como extraer características numéricas a partir de datos textuales.
 Además, repasaremos algunas herramientas básicas en scikit-learn que pueden utilizarse para realizar estas tareas.</li>
 </ul>
 
@@ -11879,7 +11879,7 @@ Además, repasaremos algunas herramientas básicas en scikit-learn que pueden ut
 <li>Longitud de pétalo en cm</li>
 <li>Ancho de pétalo en cm</li>
 </ul>
-<p>Las características numéricas como estas son directas: cada ejemplo contiene una lista de números con precisión real que corresponde a las características.</p>
+<p>Las características numéricas como estas son directas: cada ejemplo contiene una lista de números con precisión real que se corresponden con las características.</p>
 
 </div>
 </div>
@@ -11898,13 +11898,9 @@ Además, repasaremos algunas herramientas básicas en scikit-learn que pueden ut
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>¿Qué pasa si tenemos características categóricas?. Por ejemplo, imagina que disponemos del color de cada flor de iris:</p>
-
-<pre><code>color in [red, blue, purple]
-
-</code></pre>
+<p>¿Qué pasa si tenemos características categóricas?. Por ejemplo, imagina que disponemos del color de cada flor de iris: $color \in \{red, blue, purple\}$</p>
 <p>Podrías estar tentado de usar algo así como i.e. <em>red=1, blue=2, purple=3</em>, pero, en general, <strong>esto es una mala idea</strong>. Los estimadores tienden a trabajar con la suposición de que las características numéricas se sitúan en una escala continua por lo que, en este ejemplo, 1 y 2 serían más parecidos que 1 y 3 y esto no tiene porque ser generalmente verdad.</p>
-<p>De hecho, el ejemplo anterior es una subcategoría de las variables categóricas, en concreto, una variable nominal. Las variables nominales no tienen asociado un orden, mientras que las variables ordinales si que implica dicho orden. Por ejemplo, las tallas de las camisetas formarían una variable ordinal "XL &gt; L &gt; M &gt; S".</p>
+<p>De hecho, el ejemplo anterior es una subcategoría de las variables categóricas, en concreto, una variable nominal. Las variables nominales no tienen asociado un orden, mientras que las variables ordinales si que implican un orden. Por ejemplo, las tallas de las camisetas formarían una variable ordinal "XL &gt; L &gt; M &gt; S".</p>
 <p>Una forma de transformar variables nominales en un formato que prevenga al estimador de asumir un orden es la llamada representación $1$-$de$-$J$ (<em>one-hot encoding</em>). Cada categoría genera su propia variable por separado.</p>
 <p>El conjunto de características aumentado sería:</p>
 <ul>
@@ -11948,7 +11944,7 @@ Además, repasaremos algunas herramientas básicas en scikit-learn que pueden ut
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">measurements</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">{</span><span class="s1">&#39;city&#39;</span><span class="p">:</span> <span class="s1">&#39;Dubai&#39;</span><span class="p">,</span> <span class="s1">&#39;temperature&#39;</span><span class="p">:</span> <span class="mf">33.</span><span class="p">},</span>
     <span class="p">{</span><span class="s1">&#39;city&#39;</span><span class="p">:</span> <span class="s1">&#39;London&#39;</span><span class="p">,</span> <span class="s1">&#39;temperature&#39;</span><span class="p">:</span> <span class="mf">12.</span><span class="p">},</span>
-    <span class="p">{</span><span class="s1">&#39;city&#39;</span><span class="p">:</span> <span class="s1">&#39;San Francisco&#39;</span><span class="p">,</span> <span class="s1">&#39;temperature&#39;</span><span class="p">:</span> <span class="mf">18.</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">&#39;city&#39;</span><span class="p">:</span> <span class="s1">&#39;San Francisco&#39;</span><span class="p">,</span> <span class="s1">&#39;temperature&#39;</span><span class="p">:</span> <span class="mf">18.</span><span class="p">}</span>
 <span class="p">]</span>
 </pre></div>
 
@@ -12090,7 +12086,7 @@ Además, repasaremos algunas herramientas básicas en scikit-learn que pueden ut
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Como un ejemplo de la forma en que se trabaja con datos numéricos y categóricos, vamos a realizar un ejercicio en el que predeciremos la supervivencia de los pasajeros del HMS Titanic.</p>
-<p>Utilizaremos una versión del dataset Titatic que puede descargarse de <a href="http://biostat.mc.vanderbilt.edu/wiki/pub/Main/DataSets/titanic3.xls">titanic3.xls</a>. Convertimos el <code>.xls</code> a <code>.csv</code> para que sea más fácil su manipulación (como texto) pero dejamos los datos sin cambiar.</p>
+<p>Utilizaremos una versión del dataset Titatic que puede descargarse de <a href="http://biostat.mc.vanderbilt.edu/wiki/pub/Main/DataSets/titanic3.xls">titanic3.xls</a>. Previamente, ya hemos convertido el <code>.xls</code> a <code>.csv</code> para que sea más fácil su manipulación (como texto), de manera que los datos no fueron modificados.</p>
 <p>Necesitamos leer todas las líneas del fichero <code>titanic3.csv</code>, ignorar la cabecera y encontrar las etiquetas (sobrevivió o murió) y los datos de entrada (características de la persona). Vamos a ver la cabecera y algunas líneas de ejemplo:</p>
 
 </div>
@@ -12136,7 +12132,7 @@ Además, repasaremos algunas herramientas básicas en scikit-learn que pueden ut
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Aquí una descripción de lo que significan cada una de las variables:</p>
+<p>Aquí tenemos una descripción de lo que significan cada una de las variables:</p>
 
 <pre><code>pclass          Passenger Class
                 (1 = 1st; 2 = 2nd; 3 = 3rd)
@@ -12905,6 +12901,47 @@ home.dest       Home/Destination</code></pre>
 <div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#También podríamos hacerlo con DictVectorizer</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction</span> <span class="k">import</span> <span class="n">DictVectorizer</span>
+
+<span class="n">diccionario</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="s1">&#39;records&#39;</span><span class="p">)</span>
+<span class="n">vec</span> <span class="o">=</span> <span class="n">DictVectorizer</span><span class="p">()</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">vec</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">diccionario</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">todense</span><span class="p">())</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[[ 29.       0.       0.     ...,   1.       0.       0.    ]
+ [  0.9167   0.       0.     ...,   0.       1.       1.    ]
+ [  2.       0.       0.     ...,   1.       0.       1.    ]
+ ..., 
+ [ 26.5      0.       1.     ...,   0.       1.       0.    ]
+ [ 27.       0.       1.     ...,   0.       1.       0.    ]
+ [ 29.       0.       0.     ...,   0.       1.       0.    ]]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">features_dummies</span><span class="o">.</span><span class="n">values</span>
 </pre></div>
 
@@ -12915,10 +12952,11 @@ home.dest       Home/Destination</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Comprobamos que hay valores perdidos, tendremos que aplicar un Imputer</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">()</span>
 </pre></div>
 
@@ -12931,7 +12969,7 @@ home.dest       Home/Destination</code></pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[13]:</div>
+<div class="prompt output_prompt">Out[14]:</div>
 
 
 
@@ -12957,7 +12995,7 @@ home.dest       Home/Destination</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">train_test_split</span>
@@ -12980,7 +13018,7 @@ home.dest       Home/Destination</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">train_data_finite</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">()</span>
@@ -12995,7 +13033,7 @@ home.dest       Home/Destination</code></pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[15]:</div>
+<div class="prompt output_prompt">Out[16]:</div>
 
 
 
@@ -13011,14 +13049,14 @@ home.dest       Home/Destination</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.dummy</span> <span class="k">import</span> <span class="n">DummyClassifier</span>
 
 <span class="n">clf</span> <span class="o">=</span> <span class="n">DummyClassifier</span><span class="p">(</span><span class="s1">&#39;most_frequent&#39;</span><span class="p">)</span>
 <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_data_finite</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Precisión: </span><span class="si">%f</span><span class="s2">&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy: </span><span class="si">%f</span><span class="s2">&quot;</span>
       <span class="o">%</span> <span class="n">clf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">test_data_finite</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">))</span>
 </pre></div>
 
@@ -13034,7 +13072,7 @@ home.dest       Home/Destination</code></pre>
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Precisión: 0.634146
+<pre>Accuracy: 0.634146
 </pre>
 </div>
 </div>
@@ -13052,7 +13090,7 @@ home.dest       Home/Destination</code></pre>
     <b>EJERCICIO</b>:
      <ul>
       <li>
-      Intenta ejecutar el problema de clasificación anterior pero usando ``LogisticRegression`` and ``RandomForestClassifier`` en lugar de ``DummyClassifier``
+      Intenta ejecutar el problema de clasificación anterior pero usando ``LogisticRegression`` y ``RandomForestClassifier`` en lugar de ``DummyClassifier``
       </li>
       <li>
       Prueba a cambiar el conjunto de características considerado. ¿Consigues mejorar los resultados?
@@ -13064,7 +13102,7 @@ home.dest       Home/Destination</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span> 

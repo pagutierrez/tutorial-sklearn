@@ -11803,7 +11803,7 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>En regresión intentamos predecir una variable continua de salida -- al contrario que las variables nominales que predecíamos en los ejemplos anteriores de clasificación.</p>
-<p>Vamos a empezar con un ejemplo simple de juguete con una sola dimensión de entrada (variable explicativa) y una variable objetivo. Crearemos un dataset mediante una curva seno con algo de ruido:</p>
+<p>Vamos a empezar con un ejemplo simple de juguete con una sola dimensión de entrada (variable explicativa) y una variable objetivo. Crearemos un dataset mediante una curva sinusoidal con algo de ruido:</p>
 
 </div>
 </div>
@@ -12023,7 +12023,7 @@ gg==
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Regresi&#243;n-lineal">Regresi&#243;n lineal<a class="anchor-link" href="#Regresi&#243;n-lineal">&#182;</a></h1><p>El primer modelo que vamos a introducir es el llamado regresión lineal simple, que simplemente predice que los datos caen en una línea recta. Una forma de ajustar este modelo es usar <code>LinearRegression</code> (también conocido como regresión <a href="https://en.wikipedia.org/wiki/Ordinary_least_squares"><em>Ordinary Least Squares (OLS)</em></a>).
-La interfaz para LinearRegression es exactamente la misma que para los clasificadores explorados anteriormente, con la salvedad de que ahora <code>y</code> contiene valores reales, en lugar de valores categóricos.</p>
+La interfaz para LinearRegression es exactamente la misma que para los clasificadores explorados anteriormente, con la salvedad de que ahora $y$ contiene valores reales, en lugar de valores categóricos.</p>
 
 </div>
 </div>
@@ -12033,7 +12033,7 @@ La interfaz para LinearRegression es exactamente la misma que para los clasifica
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Como recordaremos, el API de scikit-learn requiere que le pasemos la variable objetivo (<code>y</code>) como un array de 1 dimensión; el API de scikit-learn espera que los ejemplos (<code>X</code>) vengan en forma de un array de dos dimensiones -- aunque solo haya una columna o característica. Por tanto, debemos convertir el array NumPy <code>x</code> de una dimensión a un array <code>X</code> con dos ejes:</p>
+<p>Como recordaremos, el API de scikit-learn requiere que le pasemos la variable objetivo ($y$) como un array de 1 dimensión; el API de scikit-learn espera que los ejemplos ($\mathbf{X}$) vengan en forma de un array de dos dimensiones (aunque solo haya una columna o característica). Por tanto, debemos convertir el array NumPy $x$ de una dimensión a una matriz $\mathbf{X}$ con dos ejes:</p>
 
 </div>
 </div>
@@ -12112,7 +12112,7 @@ Después:  (100, 1)
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="k">import</span> <span class="n">LinearRegression</span>
 
-<span class="n">regressor</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">regressor</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">regressor</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 </pre></div>
 
@@ -12130,7 +12130,7 @@ Después:  (100, 1)
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>LinearRegression(copy_X=True, fit_intercept=True, n_jobs=1, normalize=False)</pre>
+<pre>LinearRegression(copy_X=True, fit_intercept=True, n_jobs=2, normalize=False)</pre>
 </div>
 
 </div>
@@ -12185,8 +12185,8 @@ Ordenada en el origen:  0.448409749883
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Ya que nuestro modelo de regresión es lineal, la relación entre la variable objetivo (y) y la variable independiente (x) se define como:</p>
-$$y = peso \times x + \text{ordenadaOrigen}$$<p>Para representar el modelo, introducimos los valores máximo y mínimo de X en esta ecuación.</p>
+<p>Ya que nuestro modelo de regresión es lineal, la relación entre la variable objetivo ($y$) y la variable independiente ($x$) se define como:</p>
+$$y = peso \times x + \text{ordenadaOrigen}$$<p>Para representar el modelo, introducimos los valores máximo y mínimo de $x$ en esta ecuación.</p>
 
 </div>
 </div>
@@ -12451,7 +12451,7 @@ IklGgV1EJMkosIuIJBkFdhGRJPP/2qsrFv53TucAAAAASUVORK5CYII=
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.legend.Legend at 0x7f496806ff28&gt;</pre>
+<pre>&lt;matplotlib.legend.Legend at 0x7fb336bdaf28&gt;</pre>
 </div>
 
 </div>
@@ -13066,7 +13066,7 @@ $$MSE = \frac{1}{n} \sum_{i=1}^{n} (\text{predicted}_i - \text{true}_i)^2$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="KNeighborsRegression">KNeighborsRegression<a class="anchor-link" href="#KNeighborsRegression">&#182;</a></h1><p>Del mismo modo que para clasificación, podemos utilizar un método basado en vecinos para regresión. Podemos predecir directamente el valor de la variable objetivo del punto más cercano o podemos promediar varios de los puntos más cercanos. Los métodos basados en vecinos son más populares en clasificación que en regresión, aunque aún así es un buen método base.</p>
+<h1 id="KNeighborsRegression">KNeighborsRegression<a class="anchor-link" href="#KNeighborsRegression">&#182;</a></h1><p>Del mismo modo que para clasificación, podemos utilizar un método basado en vecinos para regresión. Podemos predecir directamente el valor de la variable objetivo del punto más cercano o podemos promediar varios de los puntos más cercanos. Los métodos basados en vecinos son más populares en clasificación que en regresión, pese a lo cual es un método sencillo que puede servir como <em>baseline</em>.</p>
 
 </div>
 </div>
@@ -13502,7 +13502,7 @@ EZGYUWAXEYkZBXYRkZj5/1WiTbMJxMJvAAAAAElFTkSuQmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>En el conjunto de test, capturamos mejor la variación de los datos que con el modelo lineal, aunque nuestro estimador haga algunas cosas un poco raras. Evaluemos la puntuación R<sup>2</sup>:</p>
+<p>En el conjunto de test, capturamos mejor la variación de los datos que con el modelo lineal, aunque nuestro estimador haga algunas cosas <em>un poco raras</em>. Evaluemos la puntuación R<sup>2</sup>:</p>
 
 </div>
 </div>
@@ -13543,7 +13543,7 @@ EZGYUWAXEYkZBXYRkZj5/1WiTbMJxMJvAAAAAElFTkSuQmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Es mucho mejor que antes. Aquí, el problema es que un modelo lineal no era un ajuste adecuado para el problema, ya que no tenía la suficiente complejidad e infra-entrenaba los datos.</p>
+<p>Es mucho mejor que antes. El problema era que un modelo lineal no era un ajuste adecuado para el problema, ya que no tenía la suficiente complejidad e infra-entrenaba los datos (error alto por sesgo).</p>
 
 </div>
 </div>

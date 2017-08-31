@@ -11793,20 +11793,24 @@ div#notebook {
 <li><code>model.fit()</code>: ajusta los datos de entrenamiento. Para aplicaciones de aprendizaje supervisado, este método recibe dos parámetros: los datos <code>X</code> y las etiquetas <code>y</code> (p.ej. <code>model.fit(X, y)</code>). Para aplicaciones no supervisadas, <code>fit</code> recibe un único argumento, los datos <code>X</code> (p.ej. <code>model.fit(X)</code>).</li>
 </ul>
 </li>
+</ul>
+<ul>
 <li>Disponible en <strong>estimadores supervisados</strong><ul>
 <li><code>model.predict()</code>: dado un modelo que ya está entrenado, predice la etiqueta de un nuevo conjunto de datos. Este método acepta un único argumento, los nuevos datos <code>X_new</code> (p.ej. <code>model.predict(X_new)</code>) y devuelve la etiqueta predicha para ejemplo de la matriz.</li>
 <li><code>model.predict_proba()</code>: para problemas de clasificación, algunos estimadores también tienen este método, que devuelve la probabilidad de que cada patrón pertenezca a cada una de las categorías a predecir. La categoría con máxima probabilidad coincidiría con la etiqueta predicha por <code>model.predict()</code>.</li>
 <li><code>model.decision_function()</code>: para problemas de clasificación, algunos estimadores proporcionan una estimación de incertidumbre que no es una probabilidad. Para clasificación binaria, la función decision_function &gt;= 0 significa que se predice clase positiva, mientras que decision_function &lt; 0 significa que se predice clase negativa.</li>
-<li><code>model.score()</code>: para problemas de clasificación o de regresión, casi todos los estimadores implementan un método de puntuación.  Las puntuaciones tienen que estar entre 0 y 1, y la bondad del estimador debería ser más alta cuanto mayor es su puntuación. Para clasificadores, el método <code>score</code> está asociado al porcentaje de patrones bien clasificados. Para regresores, <code>score</code> compute el coeficiente de determinación (R<sup>2</sup>) de la predicción.</li>
-<li><code>model.transform()</code>: para los algoritmos de selección de características, este métodos reducirá el dataset dejando sólo las columnas (características) seleccionadas. Para algunas modelos de clasificación y regresión como los modelos lineales o los bosques aleatorios (<em>random forests</em>), este método deja sólo las características más informativas. De esta forma, estos algoritmos de clasificación o de regresión pueden usarse como métodos de selección de características.</li>
+<li><code>model.score()</code>: para problemas de clasificación o de regresión, casi todos los estimadores implementan un método de puntuación.  Las puntuaciones tienen que estar entre 0 y 1, y la bondad del estimador debería ser más alta cuanto mayor es su puntuación. Para clasificadores, el método <code>score</code> está asociado al porcentaje de patrones bien clasificados. Para regresores, <code>score</code> devuelvo el coeficiente de determinación (R<sup>2</sup>) de la predicción.</li>
+<li><code>model.transform()</code>: para los algoritmos de selección de características, este método reducirá el dataset dejando sólo las columnas (características) seleccionadas. Para algunos modelos de clasificación y regresión como los modelos lineales o los bosques aleatorios (<em>random forests</em>), este método deja sólo las características más informativas. De esta forma, estos algoritmos de clasificación o de regresión pueden usarse como métodos de selección de características.</li>
 </ul>
 </li>
+</ul>
+<ul>
 <li>Disponible en <strong>estimadores no supervisados</strong><ul>
-<li><code>model.transform()</code>: dado un modelo no supervisados, transforma nuevos datos según el modelo. Acepta un único argumento <code>X_new</code> y devuelve la nueva representación de los datos.</li>
-<li><code>model.fit_transform()</code>: algunos estimadores implementan este método que realiza de forma más eficiente el ajuste y transformación sobre el mismo conjunto de datos, que realizar una llamada a <code>model.fit(X)</code> y después a <code>model.transform(X)</code>.</li>
+<li><code>model.transform()</code>: dado un modelo no supervisado, transforma nuevos datos según el modelo. Acepta un único argumento <code>X_new</code> y devuelve la nueva representación de los datos.</li>
+<li><code>model.fit_transform()</code>: algunos estimadores implementan este método que realiza de forma más eficiente el ajuste y transformación sobre el mismo conjunto de datos que realizar, secuencialmente, una llamada a <code>model.fit(X)</code> y después a <code>model.transform(X)</code>.</li>
 <li><code>model.predict()</code>: si se trata de un algoritmo de agrupamiento, este método nos predecirá las etiquetas de grupo asignadas a nuevos puntos. No todos los algoritmos de agrupamiento pueden aplicarse a nuevos datos tras el proceso de <em>clustering</em>.</li>
-<li><code>model.predict_proba()</code>: los modelos de mixturas Gaussianas (Gaussian mixture models, GMMs) proporcionan la probabilidad de que cada punto haya sido generado por cada uno de los componentes de la mixtura.</li>
-<li><code>model.score()</code>: los modelos basados en densidades como <em>Kernel Density Estimation</em> (KDE) y los GMMs nos permiten obtener la verosimilitud de los datos según el modelo.</li>
+<li><code>model.predict_proba()</code>: los modelos de mixturas Gaussianas (<em>Gaussian mixture models</em>, GMMs) proporcionan la probabilidad de que cada punto haya sido generado por cada uno de los componentes de la mixtura.</li>
+<li><code>model.score()</code>: los modelos basados en densidades como <em>Kernel Density Estimation</em> (KDE) y los GMMs nos permiten obtener la verosimilitud de los datos según el ajuste.</li>
 </ul>
 </li>
 </ul>

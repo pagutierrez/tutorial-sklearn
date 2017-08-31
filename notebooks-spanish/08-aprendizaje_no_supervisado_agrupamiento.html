@@ -11793,7 +11793,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Aprendizaje-no-supervisado-parte-2----agrupamiento">Aprendizaje no supervisado parte 2 -- agrupamiento<a class="anchor-link" href="#Aprendizaje-no-supervisado-parte-2----agrupamiento">&#182;</a></h1>
+<h1 id="Aprendizaje-no-supervisado-parte-2---agrupamiento">Aprendizaje no supervisado parte 2 - agrupamiento<a class="anchor-link" href="#Aprendizaje-no-supervisado-parte-2---agrupamiento">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -11802,7 +11802,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>El agrupamiento (<em>clustering</em>) es la tarea de reunir los ejemplos formando grupos de ejemplos similares de acuerdo a alguna medida de semejanza prefijada o disimilitud (distancia), como la distancia Euclídea.</p>
+<p>El agrupamiento (<em>clustering</em>) consiste en forma grupos de ejemplos similares de acuerdo a alguna medida de semejanza prefijada o disimilitud (distancia), como la distancia Euclídea.</p>
 <p><img width="60%" src='figures/clustering.png'/></p>
 
 </div>
@@ -11818,7 +11818,7 @@ div#notebook {
 <ul>
 <li>Compresión para reducción de datos.</li>
 <li>Resumir los datos como un paso de preprocesamiento para los sistemas de recomendación.</li>
-<li>Agrupar noticias <em>web</em> relacionadas (p.ej. Google News) y resultados de búsqueda <em>web</em>.</li>
+<li>Agrupar noticias <em>web</em> relacionadas (p.ej. Google News) y resultados de búsquedas <em>web</em>.</li>
 <li>Realizar perfiles de clientes en estrategias de marketing.</li>
 </ul>
 
@@ -12044,7 +12044,7 @@ gg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>En el scatter anterior, podemos ver tres grupos separados de datos y nos gustaría recuperarlos utilizando agrupamiento -- algo así como "descubrir" las etiquetas de clase, que ya damos por sentadas en la tarea de clasificación.</p>
+<p>En el scatter anterior, podemos ver tres grupos separados de datos y nos gustaría recuperarlos utilizando agrupamiento (algo así como "descubrir" las etiquetas de clase, que ya damos por sentadas en la tarea de clasificación).</p>
 <p>Incluso si los grupos son obvios en los datos, es difícil encontrarlos cuando estos datos están en un espacio de alta dimensionalidad, que no podemos visualizar en un único histograma o scatterplot.</p>
 
 </div>
@@ -12055,9 +12055,9 @@ gg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Ahora utilizaremos uno de los algoritmos de <em>clustering</em> más simples, K-means. Este es un algoritmo iterativo que busca aquellos tres centroides (centros de los <em>clusters</em>) tales que la distancia desde cada punto a su centroide sea mínima.
-La implementación estándar de K-means utiliza la distancia Euclídea, por lo que debemos estar seguros de que todas nuestras variables están en la misma escala, especialmente para datasets reales. Para ello podemos aplicar la estandarización que vimos en el libro anterior.</p>
-<p><br/></p>
+<p>Ahora utilizaremos uno de los algoritmos de <em>clustering</em> más simples, K-means. Este es un algoritmo iterativo que busca aquellos tres centroides (centro de cada uno de los <em>clusters</em>) tales que la distancia desde cada punto a su centroide sea mínima.
+La implementación estándar de K-means utiliza la distancia Euclídea, por lo que debemos estar seguros de que todas nuestras variables están en la misma escala, especialmente para datasets reales. Para ello podemos aplicar la estandarización que vimos en el cuaderno anterior.
+<br/></p>
 <div class="alert alert-success">
     <b>Pregunta</b>:
      <ul>
@@ -12089,8 +12089,7 @@ La implementación estándar de K-means utiliza la distancia Euclídea, por lo q
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Podemos obtener las etiquetas de los datos o llamando al método <code>fit</code> y después accediendo al atributo<br>
-<code>labels_</code> del estimador KMeans, o llamando a <code>fit_predict</code>. En cualquier caso, el resultado contiene el identificador del grupo al que asignamos cada punto.</p>
+<p>Podemos obtener las etiquetas de los datos o llamando al método <code>fit</code> y después accediendo al atributo <code>labels_</code> del estimador KMeans, o llamando a <code>fit_predict</code> (que aplica los dos pasos seguidos). En cualquier caso, el resultado contiene el identificador del grupo al que asignamos cada punto.</p>
 
 </div>
 </div>
@@ -12148,7 +12147,8 @@ La implementación estándar de K-means utiliza la distancia Euclídea, por lo q
 <div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="n">labels</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;¿Hemos acertado en todas las etiquetas?&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="n">labels</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;¿En cuantas hemos fallado?&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y</span> <span class="o">!=</span> <span class="n">labels</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -12160,14 +12160,13 @@ La implementación estándar de K-means utiliza la distancia Euclídea, por lo q
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[7]:</div>
+<div class="prompt"></div>
 
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>False</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>¿Hemos acertado en todas las etiquetas? False
+¿En cuantas hemos fallado? 100
+</pre>
 </div>
-
 </div>
 
 </div>
@@ -12812,7 +12811,7 @@ QY97bLIAAAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Esta claro que podríamos estar satisfechos con los resultados obtenidos, pero, en general, nos gustaría tener una evaluación cuantitativa. ¿Qué tal comparar nuestras etiquetas aprendidas con las etiquetas reales?</p>
+<p>Examinando el resultado de forma gráfica, está claro que podríamos estar satisfechos con los resultados obtenidos, pero, en general, nos gustaría tener una evaluación cuantitativa. ¿Qué tal comparar nuestras etiquetas aprendidas con las etiquetas reales?</p>
 
 </div>
 </div>
@@ -13300,7 +13299,7 @@ FKUJQCmlUtT/AxhL6/4wMBiwAAAAAElFTkSuQmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="El-m&#233;todo-del-codo-(Elbow-method)">El m&#233;todo del codo (<em>Elbow method</em>)<a class="anchor-link" href="#El-m&#233;todo-del-codo-(Elbow-method)">&#182;</a></h4><p>El método del codo es una regla general para encontrar el número óptimo de <em>clusters</em>. Para ello, analizamos la dispersión de los <em>clusters</em> para distintos valores de k:</p>
+<h4 id="El-m&#233;todo-del-codo-(Elbow-method)">El m&#233;todo del codo (<em>Elbow method</em>)<a class="anchor-link" href="#El-m&#233;todo-del-codo-(Elbow-method)">&#182;</a></h4><p>El método del codo es una regla general para encontrar el número óptimo de <em>clusters</em>. Para ello, analizamos la dispersión de los <em>clusters</em> (también llamada inercia o SSE, suma de las distancias de cada punto a su centroide más cercano) para distintos valores de k:</p>
 
 </div>
 </div>
@@ -13615,7 +13614,7 @@ mfWbw8PMzPrt/wP6CGMFdee69AAAAABJRU5ErkJggg==
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.text.Text at 0x7f79096740b8&gt;</pre>
+<pre>&lt;matplotlib.text.Text at 0x7f480a6c14e0&gt;</pre>
 </div>
 
 </div>
@@ -15815,14 +15814,14 @@ SrGIiIiIdHiqFIuIiIhIh/f/lIOYvEOqkTcAAAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>A continuación, podemos ver algunos algoritmos de agrupamiento muy importantes:</p>
+<p>A continuación, algunos de los algoritmos de agrupamiento más importantes:</p>
 <ul>
 <li><code>sklearn.cluster.KMeans</code>: <br/>
   El más simple aunque más efectivo algoritmo de agrupamiento. Hay que proporcionarle el número de grupos y asume que los datos están normalizados.</li>
 <li><code>sklearn.cluster.MeanShift</code>: <br/>
   Puede encontrar <em>mejores</em> clusters que KMeans pero no es escalable para muchos ejemplos.</li>
 <li><code>sklearn.cluster.DBSCAN</code>: <br/>
-  Puede detectar grupos con formas irregulares, basándose en densidades, es decir, las regiones dispersas del espacio de entrada tiene más posibilidades de convertirse en fronteras entre clusters. También permite detectar <em>outliers</em> (datos que no pertenecen a ningún grupo.</li>
+  Puede detectar grupos con formas irregulares, basándose en densidades, es decir, las regiones dispersas del espacio de entrada tiene más posibilidades de convertirse en fronteras entre <em>clusters</em>. También permite detectar <em>outliers</em> (datos que no pertenecen a ningún grupo.</li>
 <li><code>sklearn.cluster.AffinityPropagation</code>: <br/>
   Algoritmo de agrupamiento basado en paso de mensajes entre puntos.</li>
 <li><code>sklearn.cluster.SpectralClustering</code>: <br/>
@@ -15854,7 +15853,7 @@ SrGIiIiIdHiqFIuIiIhIh/f/lIOYvEOqkTcAAAAASUVORK5CYII=
     <b>EJERCICIO: agrupamiento de dígitos</b>:
      <ul>
       <li>
-      Aplica agrupamiento K-means a los datos de los dígitos, buscando 10 dígitos. Visualiza los centros como imágenes (es decir, redimensiona cada uno a 8x8 y usa ``plt.imshow``). ¿Te parece que los grupos estén relacionados con algunos dígitos particulares? ¿Qué valore de ``adjusted_rand_score`` obtienes?
+      Aplica agrupamiento K-means a los datos de los dígitos, buscando 10 dígitos. Visualiza los centros como imágenes (es decir, redimensiona cada uno a 8x8 y usa ``plt.imshow``). ¿Te parece que los grupos estén relacionados con algunos dígitos particulares? ¿Qué valores de ``adjusted_rand_score`` obtienes?
       </li>
       <li>
       Visualiza los dígitos proyectados como se hizo en el ejemplo anterior pero, esta vez, utiliza las etiquetas que proporciona KMeans como colores. ¿Qué observas?

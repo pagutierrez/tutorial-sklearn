@@ -11830,7 +11830,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Para algunos tipos de datos, por ejemplo, para datos de tipo texto, debemos aplicar un paso de extracción de características para convertirlo en características numéricas. Para demostrarlo, vamos a cargar el dataset de <em>spam</em> que utilizamos previamente.</p>
+<p>Para algunos tipos de datos, por ejemplo, para datos de tipo texto, debemos aplicar un paso de extracción de características para convertirlos en características numéricas. Para demostrarlo, vamos a cargar el dataset de <em>spam</em> que utilizamos previamente.</p>
 
 </div>
 </div>
@@ -11912,7 +11912,7 @@ div#notebook {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>0.96843615494978474</pre>
+<pre>0.96987087517934001</pre>
 </div>
 
 </div>
@@ -11957,7 +11957,7 @@ div#notebook {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>0.96843615494978474</pre>
+<pre>0.96987087517934001</pre>
 </div>
 
 </div>
@@ -11971,8 +11971,8 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Como puedes comprobar, esto hace el código mucho más corto y fácil de manejar. Realmente, está ejecutándose exactamente lo mimos. Cuando llamamos a <code>fit</code> en la tubería, se llamará a cada método de forma sucesiva.</p>
-<p>Después del primer ajuste, se utilizará el método <code>transform</code> para crear una nueva representación. Esta se utilizará como entrada en el método <code>fit</code> del siguiente paso, y así sucesivamente. En el último paso, no se llamará a <code>transform</code>.</p>
+<p>Como puedes comprobar, esto hace el código mucho más corto y fácil de manejar. Realmente, está ejecutándose exactamente lo mismo. Cuando llamamos a <code>fit</code> en la tubería, se llamará a cada método de forma sucesiva.</p>
+<p>Después del primer ajuste, se utilizará el método <code>transform</code> para crear una nueva representación. Ésta se utilizará como entrada en el método <code>fit</code> del siguiente paso, y así sucesivamente. En el último paso, no se llamará a <code>transform</code>.</p>
 <p><img src="figures/pipeline.svg" alt="pipeline"></p>
 <p>Si llamamos a <code>score</code>, solo se llamará a <code>transform</code> en cada paso, generando lo que serían los datos de test. Al final aplicaremos <code>score</code> sobre la representación final obtenida. Lo mismo pasa para <code>predict</code>.</p>
 
@@ -11985,7 +11985,7 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Construir tuberías no solo nos permite simplificar el código, también es muy importante para el ajuste de parámetros. Imaginemos que queremos ajustar el parámetro $C$ de la regresión logística anterior.</p>
-<p>Imaginemos que lo hacemos de la siguiente forma:</p>
+<p>Lo podríamos hacer de la siguiente forma (incorrecta):</p>
 
 </div>
 </div>
@@ -12005,8 +12005,9 @@ div#notebook {
 <span class="n">X_test</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">text_test</span><span class="p">)</span>
 
 <span class="n">clf</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
-<span class="n">grid</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">param_grid</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">]},</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">grid</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">param_grid</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="o">.</span><span class="mi">01</span><span class="p">,</span> <span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">]},</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">grid</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">grid</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12023,14 +12024,7 @@ div#notebook {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>GridSearchCV(cv=5, error_score=&#39;raise&#39;,
-       estimator=LogisticRegression(C=1.0, class_weight=None, dual=False, fit_intercept=True,
-          intercept_scaling=1, max_iter=100, multi_class=&#39;ovr&#39;, n_jobs=1,
-          penalty=&#39;l2&#39;, random_state=None, solver=&#39;liblinear&#39;, tol=0.0001,
-          verbose=0, warm_start=False),
-       fit_params={}, iid=True, n_jobs=1,
-       param_grid={&#39;C&#39;: [0.1, 1, 10, 100]}, pre_dispatch=&#39;2*n_jobs&#39;,
-       refit=True, return_train_score=True, scoring=None, verbose=0)</pre>
+<pre>0.98421807747489243</pre>
 </div>
 
 </div>
@@ -12053,7 +12047,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Hemos aplicado búsqueda <em>grid</em> con validación cruzada utilizando <code>X_train</code>. Sin embargo, cuando aplicamos <code>TfidfVectorizer</code> estamos considerando el conjunto <code>X_train</code> completo, no solo los folds de entrenamiento. Por tanto, podríamos estar usando conocimiento acerca de la frecuencia de las palabras en los folds de test. Esto se llama "contaminación" del conjunto de test y lleva a estimaciones demasiado optimistas del rendimiento de generalización o a parámetros seleccionados de forma incorrecta. Sin embargo, podemos arreglar esto con una tubería:</p>
+<p>Hemos aplicado búsqueda <em>grid</em> con validación cruzada utilizando <code>X_train</code>. Sin embargo, cuando aplicamos <code>TfidfVectorizer</code> estamos considerando el conjunto <code>X_train</code> completo, no solo los folds de entrenamiento. Por tanto, podríamos estar usando conocimiento acerca de la frecuencia de las palabras en los <em>folds</em> de test. Esto se llama "contaminación" del conjunto de test y lleva a estimaciones demasiado optimistas del rendimiento de generalización o a parámetros seleccionados de forma incorrecta. Sin embargo, podemos arreglar esto con una tubería:</p>
 
 </div>
 </div>
@@ -12069,7 +12063,7 @@ div#notebook {
                          <span class="n">LogisticRegression</span><span class="p">())</span>
 
 <span class="n">grid</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span>
-                    <span class="n">param_grid</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;logisticregression__C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">]},</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+                    <span class="n">param_grid</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;logisticregression__C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="o">.</span><span class="mi">01</span><span class="p">,</span> <span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">]},</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 
 <span class="n">grid</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">text_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 <span class="n">grid</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">text_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
@@ -12089,7 +12083,7 @@ div#notebook {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>0.98852223816355811</pre>
+<pre>0.98421807747489243</pre>
 </div>
 
 </div>
@@ -12103,7 +12097,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Observa que tenemos que indicar en que parte de la tubería aparece el parámetro $C$. Esto lo hacemos con la sintaxis especial <code>__</code>. El nombre que hay antes del <code>__</code> es simplemente el nombre de la clase, la parte que hay después de <code>__</code> es el parámetro que queremos ajustar por búsqueda <em>grid</em>.</p>
+<p>Observa que tenemos que indicar en que parte de la tubería aparece el parámetro $C$. Esto lo hacemos con la sintaxis especial <code>__</code>. El nombre que hay antes del <code>__</code> es simplemente el nombre de la clase en minúscula, la parte que hay después de <code>__</code> es el parámetro que queremos ajustar por búsqueda <em>grid</em>.</p>
 
 </div>
 </div>
@@ -12169,7 +12163,7 @@ div#notebook {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>0.98923959827833574</pre>
+<pre>0.98637015781922521</pre>
 </div>
 
 </div>
@@ -12187,7 +12181,7 @@ div#notebook {
     <b>EJERCICIO</b>:
      <ul>
       <li>
-      Crea una tubería utilizando un StandardScaler y una regresión RidgeRegression y aplícala al dataset Boston housing (que se puede cargar con ``sklearn.datasets.load_boston``). Intenta añadir el transformador ``sklearn.preprocessing.PolynomialFeatures`` como una segunda fase de pre-procesamiento, y haz una búsqueda *grid* sobre el grado de los polinomios (prueba con grados 1, 2 y 3).
+      Crea una tubería utilizando un ``StandardScaler`` y una regresión ``RidgeRegression`` y aplícala al dataset Boston housing (que se puede cargar con ``sklearn.datasets.load_boston``). Añade el transformador ``sklearn.preprocessing.PolynomialFeatures`` como una segunda fase de pre-procesamiento, y haz una búsqueda *grid* sobre el grado de los polinomios (prueba con grados 1, 2 y 3).
       </li>
     </ul>
 </div>

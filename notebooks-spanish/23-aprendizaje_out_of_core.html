@@ -12008,7 +12008,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="The-IMDb-movie-dataset">The IMDb movie dataset<a class="anchor-link" href="#The-IMDb-movie-dataset">&#182;</a></h2>
+<h2 id="El-dataset-de-pel&#237;culas-IMDb">El dataset de pel&#237;culas IMDb<a class="anchor-link" href="#El-dataset-de-pel&#237;culas-IMDb">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -12023,7 +12023,7 @@ div#notebook {
 <li>A. L. Maas, R. E. Daly, P. T. Pham, D. Huang, A. Y. Ng, and C. Potts. Learning Word Vectors for Sentiment Analysis. In the proceedings of the 49th Annual Meeting of the Association for Computational Linguistics: Human Language Technologies, pages 142–150, Portland, Oregon, USA, June 2011. Association for Computational Linguistics. </li>
 </ul>
 <p>Este dataset contiene 50,000 revisiones de películas, divididas en 25,000 ejemplos de entrenamiento y 25,000 ejemplos de test. Las revisiones se etiquetan como negativas (<code>neg</code>) o positivas (<code>pos</code>). De hecho, las negativas recibieron $\le 4$ estrellas en IMDb; las positivas recibieron $\ge 7$ estrellas. Las revisiones neutrales no se incluyeron en el dataset.</p>
-<p>Asumiendo que ya habéis ejecutado el <em>script</em> <code>../fetch_data.py</code>, deberías tener disponibles los siguientes ficheros:</p>
+<p>Asumiendo que ya habéis ejecutado el <em>script</em> <code>fetch_data.py</code>, deberías tener disponibles los siguientes ficheros:</p>
 
 </div>
 </div>
@@ -12306,7 +12306,7 @@ b&#39;mat&#39; =&gt; 122997
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>La conversión no tiene estado y la dimensionalidad del espacio de salida se fijo a prior (aquí usamos módulo <code>2 ** 20</code>, que significa aproximadamente que tenemos un millón de dimensiones, $2^{20}$). Esto hace posible evitar las limitaciones del vectorizador de vocabulario, tanto a nivel de paralelización como de poder aplicar aprendizaje <em>online</em>.</p>
+<p>La conversión no tiene estado y la dimensionalidad del espacio de salida se fija a priori (aquí usamos módulo <code>2 ** 20</code>, que significa aproximadamente que tenemos un millón de dimensiones, $2^{20}$). Esto hace posible evitar las limitaciones del vectorizador de vocabulario, tanto a nivel de paralelización como de poder aplicar aprendizaje <em>online</em>.</p>
 
 </div>
 </div>
@@ -12407,7 +12407,7 @@ b&#39;mat&#39; =&gt; 122997
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Podemos vectorizar nuestros datasets en matriz dispersa de scipy de la misma forma que hubiéramos hecho con <code>CountVectorizer</code> o <code>TfidfVectorizer</code>, excepto que podemos llamar directamente al método <code>transform</code>: no hay necesidad de llamar a <code>fit</code> porque el <code>HashingVectorizer</code> no tiene estado:</p>
+<p>Podemos vectorizar nuestros datasets en matriz dispersa de scipy de la misma forma que hubiéramos hecho con <code>CountVectorizer</code> o <code>TfidfVectorizer</code>, excepto que podemos llamar directamente al método <code>transform</code>. No hay necesidad de llamar a <code>fit</code> porque el <code>HashingVectorizer</code> no se entrena, las transformaciones están prefijadas.</p>
 
 </div>
 </div>
@@ -12432,7 +12432,7 @@ b&#39;mat&#39; =&gt; 122997
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>La dimensión de salida se fija de antemano a <code>n_features=2 ** 20</code> (valor por defecto) para minimizar la probabilidad de colisión en la mayoría de problemas de clasificación, teniendo todavía modelos lineales de un tamaño razonable (1M de pesos en el atributo <code>coef_</code>):</p>
+<p>La dimensión de salida se fija de antemano a <code>n_features=2 ** 20</code> (valor por defecto) para minimizar la probabilidad de colisión en la mayoría de problemas de clasificación (1M de pesos en el atributo <code>coef_</code>):</p>
 
 </div>
 </div>
@@ -12500,7 +12500,7 @@ b&#39;mat&#39; =&gt; 122997
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>1 loop, best of 3: 16.2 µs per loop
+<pre>1 loop, best of 3: 8.03 µs per loop
 </pre>
 </div>
 </div>
@@ -12530,7 +12530,7 @@ b&#39;mat&#39; =&gt; 122997
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>1 loop, best of 3: 5.58 s per loop
+<pre>1 loop, best of 3: 5.41 s per loop
 </pre>
 </div>
 </div>
@@ -12687,7 +12687,7 @@ Accuracy de validación 0.86208
 <p>El aprendizaje <em>Out-of-Core</em> consiste en entrenar un modelo de aprendizaje automático usando un dataset que no cabe en memoria RAM. Requiere las siguientes condiciones:</p>
 <ul>
 <li>Una capa de <strong>extracción de características</strong> con una <strong>dimensionalidad de salida fija</strong>.</li>
-<li>Saber la lista de clases de antemano (en esta caso, sabemos que hay <em>tweets</em> positivos y negativos).</li>
+<li>Saber la lista de clases de antemano (en este caso, sabemos que hay <em>tweets</em> positivos y negativos).</li>
 <li>Un algoritmo de aprendizaje automático que soporte <strong>aprendizaje incremental</strong> (método <code>partial_fit</code> en scikit-learn).</li>
 </ul>
 <p>En la siguientes secciones, vamos a configurar una función simple de entrenamiento iterativo de un <code>SGDClassifier</code>.</p>
@@ -12836,7 +12836,7 @@ Accuracy de validación 0.86208
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Ahora vamos a utilizar la clase <code>LogisticRegression</code> como hicimos anteriormente, pero usaremos un <code>SGDClassifier</code> con un coste logístico en su lugar. SGD proviene de <em>stochastic gradient descent</em>, un algoritmo de optimización que optimiza los pesos de forma iterativa ejemplo a ejemplo, lo que nos permite pasarle los datos en grupos.</p>
+<p>Ahora vamos a utilizar la clase un <code>SGDClassifier</code> con un coste logístico en lugar de <code>LogisticRegression</code>. SGD proviene de <em>stochastic gradient descent</em>, un algoritmo de optimización que optimiza los pesos de forma iterativa ejemplo a ejemplo, lo que nos permite pasarle los datos en grupos.</p>
 
 </div>
 </div>

@@ -11802,7 +11802,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Primero vamos a cargar los datos textuales del directorio <code>dataset</code> que debería estar en nuestra directorio de libros de notas. Este directorio se creó al ejecutar el script <code>fetch_data.py</code> desde la carpeta de nivel superior del repositorio <em>github</em>.</p>
+<p>Primero vamos a cargar los datos textuales del directorio <code>dataset</code> que debería estar en nuestra directorio de cuadernos. Este directorio se creó al ejecutar el script <code>fetch_data.py</code> desde la carpeta de nivel superior del repositorio <em>github</em>.</p>
 <p>Además, aplicamos un preprocesamiento simple y dividimos el array de datos en dos partes:</p>
 <ol>
 <li><code>text</code>: una lista de listas, donde cada sublista representa el contenido de nuestros sms.</li>
@@ -11907,7 +11907,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Número de mensajes de spam/ham:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Número de mensajes de ham/spam:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -11922,7 +11922,7 @@ div#notebook {
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Número de mensajes de spam/ham: [4827  747]
+<pre>Número de mensajes de ham/spam: [4827  747]
 </pre>
 </div>
 </div>
@@ -12250,7 +12250,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Entrenar-un-clasificador-en-caracter&#237;stica-de-texto">Entrenar un clasificador en caracter&#237;stica de texto<a class="anchor-link" href="#Entrenar-un-clasificador-en-caracter&#237;stica-de-texto">&#182;</a></h3>
+<h3 id="Entrenar-un-clasificador-para-texto">Entrenar un clasificador para texto<a class="anchor-link" href="#Entrenar-un-clasificador-para-texto">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -12259,7 +12259,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Ahora vamos a entrenar un clasificador, la regresión logística, que sirve muy bien como base para tareas de clasificación de textos:</p>
+<p>Ahora vamos a entrenar un clasificador, la regresión logística, que funciona muy bien como base para tareas de clasificación de textos:</p>
 
 </div>
 </div>
@@ -12442,7 +12442,7 @@ div#notebook {
     <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;red&quot;</span> <span class="k">if</span> <span class="n">c</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;blue&quot;</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">coef</span><span class="p">[</span><span class="n">interesting_coefficients</span><span class="p">]]</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">n_top_features</span><span class="p">),</span> <span class="n">coef</span><span class="p">[</span><span class="n">interesting_coefficients</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">)</span>
     <span class="n">feature_names</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">feature_names</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">n_top_features</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">feature_names</span><span class="p">[</span><span class="n">interesting_coefficients</span><span class="p">],</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">);</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">n_top_features</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">feature_names</span><span class="p">[</span><span class="n">interesting_coefficients</span><span class="p">],</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">);</span>
 </pre></div>
 
 </div>
