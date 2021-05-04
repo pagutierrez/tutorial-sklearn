@@ -6,7 +6,7 @@ from sklearn.tree import DecisionTreeClassifier
 
 from scipy import ndimage
 
-from .tree_plotting import plot_tree as plot_tree_mpl
+from sklearn.tree import plot_tree as plot_tree_mpl
 
 X, y = make_blobs(centers=[[0, 0], [1, 1]], random_state=61526, n_samples=50)
 

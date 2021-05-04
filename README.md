@@ -9,7 +9,6 @@ Este repositorio contiene una serie de material sobre un breve tutorial sobre ``
 Si tienes una cuenta de Github, la forma más conveniente de bajar el material es realizar un clone del repositorio GitHub o hacer un fork. Puedes clonar el repositorio con el comando:
 ```bash
 git clone https://github.com/pagutierrez/tutorial-sklearn.git
-
 ```
 
 Si no estás familiarizado con GitHub o no tienes cuenta, también puedes bajar todo el repositorio como un archivo `.zip`, accediendo a ``Clone or download`` en la cabecera del repositorio (https://github.com/pagutierrez/tutorial-sklearn) y pulsando sobre ``Download ZIP``.
@@ -43,16 +42,12 @@ Este último es importante. Si lo tienes correctamente instalado, deberías pode
 ```
 en tu terminal de comandos y ver el panel de carga de libros de notas en tu navegador web. Intenta abrir y ejecutar cualquiera de los libros que contiene este curso, para ver si funciona todo correctamente.
 
-Para aquellos usuarios que no tengan las dependencias instaladas, una forma relativamente sencilla de conseguirlas es utilizar una distribución de Python como [Anaconda CE](http://store.continuum.io/ "Anaconda CE"), que incluye los paquetes de Python más relevantes para ciencia, matemáticas, ingeniería y análisis de datos. Anaconda puede descargarse e instalarse de forma libre, incluyendo el uso comercial y la redistribución. Los códigos incluidos en este tutorial deberían ser compatibles con Python 2.7 y Python 3.4-3.6. Suponiendo que tengas Anaconda instalado, los siguientes comandos crean un entorno nuevo llamado `sklearn-env` e instalan todas las dependencias:
+Para aquellos usuarios que no tengan las dependencias instaladas, una forma relativamente sencilla de conseguirlas es utilizar una distribución de Python como [Anaconda CE](http://store.continuum.io/ "Anaconda CE"), que incluye los paquetes de Python más relevantes para ciencia, matemáticas, ingeniería y análisis de datos. Anaconda puede descargarse e instalarse de forma libre, incluyendo el uso comercial y la redistribución. Los códigos incluidos en este tutorial deberían ser compatibles con Python 3.8. Suponiendo que tengas Anaconda instalado, los siguientes comandos crean un entorno nuevo llamado `sklearn-env` e instalan todas las dependencias:
 ```bash
 conda update conda
 conda update anaconda
-conda create --prefix ~/sklearn-env scikit-learn
-source activate sklearn-env
-conda install matplotlib
-conda install ipython
-conda install pandas
-conda install Pillow
+conda env create -f environment.yml
+conda activate sklearn-env
 ```
 
 Tras obtener el material, **recomendamos encarecidamente** abrir y ejecutar el libro de notas ``check_env.ipynb``, que se encuentra en la raíz del repositorio. Para ello, ejecuta el comando:
@@ -64,23 +59,19 @@ Una vez dentro del libro, ejecuta la única celda de código pulsando sobre el b
 ![](images/check_env-1.png)
 
 Si tu entorno satisface todos los requisitos para el tutorial, el código ejecutado debería mostrar una salida como la siguiente:
-```bash
-Using python in /home/pagutierrez/anaconda3
-3.6.1 |Anaconda 4.4.0 (64-bit)| (default, May 11 2017, 13:09:58) 
-[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]
-
-[ OK ] numpy version 1.12.1
-[ OK ] scipy version 0.19.0
-[ OK ] matplotlib version 2.0.2
-[ OK ] IPython version 5.3.0
-[ OK ] sklearn version 0.18.1
-[ OK ] pandas version 0.20.1
-[ OK ] PIL version 1.1.7
-[ OK ] ipywidgets version 6.0.0
 ```
-Aunque no sea un requisito, te recomendamos actualizar los paquetes Python a su ultima versión, para así asegurar la mejor compatibilidad con el material didáctico. Puedes actualizar los paquetes con los comandos:
-```bash
-pip install [package-name] --upgrade
+Using python in /home/javier/miniconda3/envs/sklearn-env
+3.8.8 (default, Apr 13 2021, 19:58:26) 
+[GCC 7.3.0]
+
+[ OK ] numpy version 1.20.1
+[ OK ] scipy version 1.6.2
+[ OK ] matplotlib version 3.3.4
+[ OK ] IPython version 7.22.0
+[ OK ] sklearn version 0.24.1
+[ OK ] pandas version 1.2.4
+[ OK ] PIL version 8.2.0
+[ OK ] ipympl version 0.7.0
 ```
 
 
