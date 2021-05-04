@@ -1,12 +1,12 @@
-name: tutorial-sklearn
+name: sklearn-env
 dependencies:
-   - python=3.6
-   - numpy
-   - scipy
-   - matplotlib
-   - pandas
-   - pillow
-   - scikit-learn
+   - python=3.8
+   - numpy=1.20
+   - scipy=1.6
+   - matplotlib=3.3
+   - pandas=1.2
+   - pillow=8.2
+   - scikit-learn=0.24
    - jupyter
-   - ipython
-   - pyzmq
+   - ipython=7.22
+   - ipympl=0.7
